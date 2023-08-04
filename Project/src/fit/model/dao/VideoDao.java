@@ -6,6 +6,6 @@ import java.util.List;
 import fit.model.Video;
 
 public interface VideoDao {
-//	List<Video> selectVideo();
+	List<Video> selectVideo();
 	Video selectVideoByNo(int no);
 }

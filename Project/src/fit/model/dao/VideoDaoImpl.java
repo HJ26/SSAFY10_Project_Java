@@ -13,26 +13,26 @@ public class VideoDaoImpl implements VideoDao {
 
 	// 외부에서 생성 못 하도록 private
 	private VideoDaoImpl() {
-		
+
 	}
-	
+
 	// 외부에서 객체 사용할 수 있도록 getter
 	public static VideoDao getInstance() {
 		return instance;
 	}
 
+	@Override
+	public List<Video> selectVideo() {
+		return list; // 이거 없어도 됨
+	}
 
 	@Override
 	public Video selectVideoByNo(int no) {
-		return null; //영상선택화면
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getNo() == no)
+				return list.get(i);
+		}
+		return null;
 	}
-	
-
-	// 영상 선택
-//	@Override
-//	public List<Video> selectVideo() {
-//		return list; //영상선택화면
-//	}
-
 
 }
