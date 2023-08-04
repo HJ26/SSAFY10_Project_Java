@@ -14,21 +14,25 @@ public class SsafitUtil {
 	}
 
 	public static int inputInt(String msg) {
-		return 0;
+		System.out.print(msg);
+		int n = sc.nextInt();
+		return n;
 	}
 	public static void printLine() {
-		
+		System.out.println("------------------------------------------------");
 	}
 	
-	public static void printLine(char ch) {
-		
+	public static void printLine(String str) {
+		System.out.println(str);
 	}
 	
-	public static void printLine(char ch, int len) {
+	public static void printLine(String str, int len) {
 		
 	}
 	
 	public static void screenClear() {
-		
+		for(int i = 0; i < 50; i++) {
+			System.out.println("\n");
+		}
 	}
 }
