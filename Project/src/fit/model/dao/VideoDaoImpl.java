@@ -21,11 +21,13 @@ public class VideoDaoImpl implements VideoDao {
 		return instance;
 	}
 
+	// 영화 리스트 출력
 	@Override
 	public List<Video> selectVideo() {
 		return list; // 이거 없어도 됨
 	}
 
+	// 해당하는 영화 번호의 영화 정보 출력
 	@Override
 	public Video selectVideoByNo(int no) {
 		for (int i = 0; i < list.size(); i++) {
