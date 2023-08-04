@@ -1,5 +1,6 @@
 package fit.model.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,9 +25,15 @@ public class VideoReviewDaoImpl implements VideoReviewDao {
 
 	@Override
 	public int insertReview(VideoReview videoReview) {
+		List<VideoReview> vrList = new ArrayList<VideoReview>();
 		int movieNum = videoReview.getVideoNo();
+		if (videoReviewDb.get(movieNum) == null) {
+			videoReviewDb.put(movieNum, vrList);
+			reviewNo = 1;
+		} else reviewNo = videoReviewDb.get(movieNum).size()+1;
+		videoReview.setReviewNo(reviewNo);
 		videoReviewDb.get(movieNum).add(videoReview);
-		return videoReviewDb.get(movieNum).size();
+		return reviewNo++;
 	}
 
 	

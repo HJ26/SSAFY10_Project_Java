@@ -26,28 +26,7 @@ public class VideoUi {
 
 	// 외부에서 생성 못 하도록 private로 기본 생성자 생성
 	private VideoUi() {
-		List<Video> arrList = new ArrayList<>();
-		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("data/video.json")));
-			StringBuilder sb = new StringBuilder();
-			String str = null;
-			while((str = br.readLine()) != null) {
-				sb.append(str).append("\n"); // sb에 문자열이 모여있음
-			}
-			
-			Gson gson = new Gson();
-			Video[] arr = gson.fromJson(sb.toString(), Video[].class);
-			
-			
-			for (int i =0; i<arr.length; i++) {
-				arrList.add(arr[i]);
-			}
-			
-		} catch (Exception e) {
-			System.out.println("파일이 없습니다.");
-		}
 		
-		videoDao = (VideoDao) arrList;
 	}
 	
 	public static VideoUi getInstance() {
@@ -55,7 +34,7 @@ public class VideoUi {
 		return instance;
 	}
 
-		//		 맨처음 메인화면
+		// 맨처음 메인화면
 	public void service() {
 		MainUi mainui = new MainUi();
 		int menu;
@@ -83,7 +62,7 @@ public class VideoUi {
 			System.out.println(videoDao.selectVideo().get(i).toString());
 		}
 		SsafitUtil.printLine();
-		SsafitUtil.printLine("1. 영상으로 ");
+		SsafitUtil.printLine("1. 영상상세 ");
 		SsafitUtil.printLine("0. 이전으로 ");
 		SsafitUtil.printLine();
 		menu = SsafitUtil.inputInt("메뉴를 선택하세요: ");
