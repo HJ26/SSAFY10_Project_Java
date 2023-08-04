@@ -1,3 +1,4 @@
+package fit.model;
 
 public class VideoReview {
 	private int videoNo;

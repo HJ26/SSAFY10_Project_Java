@@ -9,7 +9,7 @@ public class VideoDaoImpl implements VideoDao {
 	private List<Video> list = new ArrayList<>();
 
 	// 싱글턴패턴을 위한 객체 생성
-	private static VideoDao instance = new VideoDaoImpl();
+	private static VideoDaoImpl instance = new VideoDaoImpl();
 
 	// 외부에서 생성 못 하도록 private
 	private VideoDaoImpl() {
@@ -17,13 +17,14 @@ public class VideoDaoImpl implements VideoDao {
 	}
 
 	// 외부에서 객체 사용할 수 있도록 getter
-	public static VideoDao getInstance() {
+	public static VideoDaoImpl getInstance() {
 		return instance;
 	}
 
 	@Override
 	public List<Video> selectVideo() {
-		return list; // 이거 없어도 됨
+		
+		return list;
 	}
 
 	@Override
